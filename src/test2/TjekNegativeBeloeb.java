@@ -26,15 +26,6 @@ public class TjekNegativeBeloeb
 			antalFejl = antalFejl + 1;
 		}
 
-		System.out.println("*** Tjek af, at penge kan komme retur");
-		automat.indsætPenge(-100); //ændret indsatte penge til negativt beløb.
-		automat.udskrivBillet();
-		retur = automat.returpenge();
-		if (retur != 90) {
-			System.out.println("FEJL, returpenge() skulle give 90, men den gav: "+retur);
-			antalFejl = antalFejl + 1;
-		}
-		
 		
 		
 		System.out.println();
