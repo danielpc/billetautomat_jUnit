@@ -98,7 +98,7 @@ public class Billetautomat {
 
 	public int getTotal() {
 		if (montørtilstand) {
-			return billetpris * antalBilletterSolgt;
+			return total;
 		} else {
 			System.out.println("Afvist - log ind først");
 			return 0;
