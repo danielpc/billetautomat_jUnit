@@ -115,7 +115,21 @@ public class Billetautomat {
 	}
 
 	public void setBilletpris(int billetpris) {
-		this.billetpris = billetpris;
+		if(montørtilstand)
+		{
+			if(billetpris > 0)
+			{
+				this.billetpris = billetpris;
+			}
+			else
+			{
+				System.out.println("Ugyldig billetpris.");
+			}
+		}
+		else
+		{
+			System.out.println("ikke i montør-tilsand.");
+		}
 	}
 
 	public void nulstil() {
