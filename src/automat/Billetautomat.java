@@ -7,7 +7,6 @@ public class Billetautomat {
 	private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
 	private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
 	private boolean montørtilstand;
-	private int total;
 
 	/**
 	 * Opret en billetautomat der sælger billetter til 10 kr.
@@ -16,7 +15,6 @@ public class Billetautomat {
 		billetpris = 10;
 		balance = 0;
 		antalBilletterSolgt = 0;
-		total = 0;
 	}
 
 	/**
@@ -31,10 +29,7 @@ public class Billetautomat {
 	 * Modtag nogle penge (i kroner) fra en kunde.
 	 */
 	public void indsætPenge(int beløb) {
-		if (beløb > 0)
-			balance = balance + beløb;
-		else
-			System.out.println("Kan ikke indsætte negative beløb.");
+		balance = balance + beløb;
 	}
 
 	/**
@@ -49,11 +44,9 @@ public class Billetautomat {
 	 * Opdater total og nedskriv balancen med billetprisen
 	 */
 	public void udskrivBillet() {
-		if (balance<billetpris) {
+		if (balance<10) {
 			System.out.println("Du mangler at indbetale nogle penge");
 		}
-		else
-		{
 		System.out.println("##########B##T#########");
 		System.out.println("# BlueJ Trafikselskab #");
 		System.out.println("#                     #");
@@ -67,8 +60,6 @@ public class Billetautomat {
 
 		antalBilletterSolgt = antalBilletterSolgt + 1;
 		balance = balance - billetpris; // Billetter koster 10 kroner
-		total += billetpris;
-		}
 	}
 
 
@@ -94,7 +85,7 @@ public class Billetautomat {
 
 	public int getTotal() {
 		if (montørtilstand) {
-			return total;
+			return billetpris * antalBilletterSolgt;
 		} else {
 			System.out.println("Afvist - log ind først");
 			return 0;
@@ -111,16 +102,7 @@ public class Billetautomat {
 	}
 
 	public void setBilletpris(int billetpris) {
-		if (montørtilstand)
-		{
-			if(billetpris > 0)
-				this.billetpris = billetpris;
-			else
-				System.out.println("Ugyldig billetpris.");
-		}
-		else
-			System.out.println("Ikke i montør-tilstand.");
-	
+		this.billetpris = billetpris;
 	}
 
 	public void nulstil() {
