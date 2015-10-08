@@ -7,6 +7,7 @@ public class Billetautomat {
 	private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
 	private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
 	private boolean montørtilstand;
+	private int total;
 
 	/**
 	 * Opret en billetautomat der sælger billetter til 10 kr.
@@ -15,6 +16,7 @@ public class Billetautomat {
 		billetpris = 10;
 		balance = 0;
 		antalBilletterSolgt = 0;
+		total = 0;
 	}
 
 	/**
@@ -47,6 +49,8 @@ public class Billetautomat {
 		if (balance<10) {
 			System.out.println("Du mangler at indbetale nogle penge");
 		}
+		else
+		{
 		System.out.println("##########B##T#########");
 		System.out.println("# BlueJ Trafikselskab #");
 		System.out.println("#                     #");
@@ -60,6 +64,8 @@ public class Billetautomat {
 
 		antalBilletterSolgt = antalBilletterSolgt + 1;
 		balance = balance - billetpris; // Billetter koster 10 kroner
+		total += billetpris;
+		}
 	}
 
 
